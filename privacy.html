@@ -48,10 +48,10 @@
       })();
     </script>
     <script>
-      const optOut = document.getElementById("opt-out-iframe");
-      const optOutUrl = "https://matomo.infogata.com/index.php?module=CoreAdminHome&action=optOut&language=en"
       window.matchMedia('(prefers-color-scheme: dark)')
         .addEventListener('change', event => {
+          const optOut = document.getElementById("opt-out-iframe");
+          const optOutUrl = "https://matomo.infogata.com/index.php?module=CoreAdminHome&action=optOut&language=en&fontSize=18px";
           if (event.matches) {
             //dark mode
             const backgroundColor = "121212";
@@ -120,8 +120,8 @@
               >Privacy Policy</a
             >
             <br />
-            <iframe id="opt-out-iframe" style="border: 0; height: 200px; width: 600px;"
-              src="https://matomo.infogata.com/index.php?module=CoreAdminHome&action=optOut&language=en"></iframe>
+            <iframe style="border: 0; height: 200px; width: 600px;"
+              src="https://matomo.infogata.com/index.php?module=CoreAdminHome&action=optOut&language=en&fontSize=18px"></iframe>
           </p>
           <!-- End Section -->
 

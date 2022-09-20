@@ -47,27 +47,6 @@
         g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
-    <script defer>
-      const optOut = document.getElementById("opt-out-iframe");
-      const optOutUrl = "https://matomo.infogata.com/index.php?module=CoreAdminHome&action=optOut&language=en&fontSize=18px";
-      const media = '(prefers-color-scheme: dark)';
-      function changeOptOut(darkMode) {
-        if (darkMode) {
-            const backgroundColor = "1c1b22";
-            const fontColor = "fbfbfe"
-            optOut.src = `${optOutUrl}&backgroundColor=${backgroundColor}&fontColor=${fontColor}`
-        } else {
-            optOut.src = optOutUrl;
-        }
-      }
-      if (optOut && window.matchMedia) {
-        changeOptOut(window.matchMedia(media).matches);
-        window.matchMedia(media)
-          .addEventListener('change', event => {
-            changeOptOut(event.matches);
-          })
-      }
-    </script>
     <!-- End Matomo Code -->
   </head>
 
@@ -190,5 +169,26 @@
 
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script>
+      const optOut = document.getElementById("opt-out-iframe");
+      const optOutUrl = "https://matomo.infogata.com/index.php?module=CoreAdminHome&action=optOut&language=en&fontSize=18px";
+      const media = '(prefers-color-scheme: dark)';
+      function changeOptOut(darkMode) {
+        if (darkMode) {
+            const backgroundColor = "1c1b22";
+            const fontColor = "fbfbfe"
+            optOut.src = `${optOutUrl}&backgroundColor=${backgroundColor}&fontColor=${fontColor}`
+        } else {
+            optOut.src = optOutUrl;
+        }
+      }
+      if (optOut && window.matchMedia) {
+        changeOptOut(window.matchMedia(media).matches);
+        window.matchMedia(media)
+          .addEventListener('change', event => {
+            changeOptOut(event.matches);
+          })
+      }
+    </script>
   </body>
 </html>

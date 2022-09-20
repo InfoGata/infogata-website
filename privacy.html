@@ -47,6 +47,21 @@
         g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
+    <script>
+      const optOut = document.getElementById("opt-out-iframe");
+      const optOutUrl = "https://matomo.infogata.com/index.php?module=CoreAdminHome&action=optOut&language=en"
+      window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', event => {
+          if (event.matches) {
+            //dark mode
+            const backgroundColor = "121212";
+            const fontColor = "ffffff"
+            optOut.src = `${optOutUrl}&backgroundColor=${backgroundColor}&fontColor=${fontColor}`
+          } else {
+            optOut.src = optOutUrl;
+          }
+        })
+    </script>
     <!-- End Matomo Code -->
   </head>
 
@@ -129,6 +144,9 @@
             <a href="https://policies.google.com/privacy" target="_blank"
               >Privacy Policy</a
             >
+            <br />
+            <iframe id="opt-out-iframe" style="border: 0; height: 200px; width: 600px;"
+              src="https://matomo.infogata.com/index.php?module=CoreAdminHome&action=optOut&language=en&backgroundColor=ffffff"></iframe>
           </p>
           <!-- End Section -->
 
